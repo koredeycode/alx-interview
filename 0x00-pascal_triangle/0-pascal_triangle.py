@@ -22,9 +22,8 @@ def pascal_triangle(n):
         return []
     elif n == 1:
         return [[1]]
-    else:
-        result = pascal_triangle(n - 1)
-        last = result[-1]
-        new = [1] + [last[i] + last[i + 1] for i in range(len(last) - 1)] + [1]
-        result.append(new)
-        return result
+    result = pascal_triangle(n - 1)
+    last = result[-1]
+    new = [1] + [last[i] + last[i + 1] for i in range(len(last) - 1)] + [1]
+    result.append(new)
+    return result
