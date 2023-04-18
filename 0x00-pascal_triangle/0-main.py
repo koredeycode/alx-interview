@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+from sys import argv
 """
 0-main
 """
@@ -13,4 +14,4 @@ def print_triangle(triangle):
 
 
 if __name__ == "__main__":
-    print_triangle(pascal_triangle(0))
+    print_triangle(pascal_triangle(int(argv[1])))
