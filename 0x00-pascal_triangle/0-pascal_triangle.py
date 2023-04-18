@@ -16,6 +16,8 @@ def pascal_triangle(n):
     Raises:
         None.
     """
+    if n <= 0:
+        return []
     ret = [[1]]
     if n >= 2:
         ret.append([1, 1])
