@@ -12,20 +12,19 @@ def canUnlockAll(boxes):
     Return:
         boolean
     """
-    try:
-        unlocked_boxes = [True] + [False] * (len(boxes) - 1)
+    unlocked_boxes = [True] + [False] * (len(boxes) - 1)
 
-        seen_boxes = set([0])
+    seen_boxes = set([0])
 
-        boxes_to_visit = list(boxes[0])
+    boxes_to_visit = list(boxes[0])
 
-        while boxes_to_visit:
-            box_index = boxes_to_visit.pop(0)
-            if not unlocked_boxes[box_index]:
-                unlocked_boxes[box_index] = True
-                seen_boxes.add(box_index)
-                boxes_to_visit.extend(boxes[box_index])
-    except:
-        return False
+    while boxes_to_visit:
+        box_index = boxes_to_visit.pop(0)
+        if box_index >= len(boxes):
+            continue
+        if not unlocked_boxes[box_index]:
+            unlocked_boxes[box_index] = True
+            seen_boxes.add(box_index)
+            boxes_to_visit.extend(boxes[box_index])
 
     return len(seen_boxes) == len(boxes)
