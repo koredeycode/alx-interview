@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """canUnlockAll function present"""
 from typing import List, Set
 
