@@ -12,7 +12,8 @@ def canUnlockAll(boxes):
     Return:
         boolean
     """
-    unlocked_boxes = [True] + [False] * (len(boxes) - 1)
+    n = len(boxes)
+    unlocked_boxes = [True] + [False] * (n - 1)
 
     seen_boxes = set([0])
 
@@ -20,7 +21,7 @@ def canUnlockAll(boxes):
 
     while boxes_to_visit:
         box_index = boxes_to_visit.pop(0)
-        if not box_index or box_index >= len(boxes) or box_index < 0:
+        if not box_index or box_index >= n or box_index < 0:
             continue
         if not unlocked_boxes[box_index]:
             unlocked_boxes[box_index] = True
