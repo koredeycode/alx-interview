@@ -1,10 +1,16 @@
 #!/usr/bin/python3
-"""canUnlockAll function present"""
+"""This module contain the canUnlockAll function"""
 from typing import List, Set
 
 
 def canUnlockAll(boxes: List[List[int]]) -> bool:
-    """The canUnlockAllFunction"""
+    """
+    The canUnlockAllFunction function
+    Args:
+        boxes: list of list of int
+    Return:
+        boolean
+    """
     unlocked_boxes: List[bool] = [True] + [False] * (len(boxes) - 1)
 
     seen_boxes: Set[int] = set([0])
