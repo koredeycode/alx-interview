@@ -20,7 +20,7 @@ def canUnlockAll(boxes):
 
     while boxes_to_visit:
         box_index = boxes_to_visit.pop(0)
-        if box_index >= len(boxes):
+        if not box_index or box_index >= len(boxes) or box_index < 0:
             continue
         if not unlocked_boxes[box_index]:
             unlocked_boxes[box_index] = True
