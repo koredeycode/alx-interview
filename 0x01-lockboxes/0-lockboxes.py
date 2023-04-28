@@ -19,7 +19,7 @@ def canUnlockAll(boxes):
 
     boxes_to_visit = list(boxes[0])
 
-    while boxes_to_visit:
+    while boxes_to_visit and not all(unlocked_boxes):
         box_index = boxes_to_visit.pop(0)
         if not box_index or box_index >= n or box_index < 0:
             continue
