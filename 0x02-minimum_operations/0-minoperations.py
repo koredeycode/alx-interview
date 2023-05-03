@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 Contain my implementation for the minimum operation interview challenge
 """
