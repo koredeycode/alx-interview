@@ -1,60 +1,51 @@
 #!/usr/bin/python3
-"""
-Contain my implementation for the minimum operation interview challenge
-"""
+"""Module documentation"""
 
 
 class opClass:
     """
-    Implements operations on integers
+    Opclass implementations
     """
-    def __init__(self) -> None:
-        """
-        Initializes instance variables count, ops, and clipboard
-        """
-        self.count: int = 1
-        self.ops: int = 0
-        self.clipboard: int = 0
-
-    def copy(self) -> None:
-        """
-        Sets clipboard to current count and increments ops by 1
-        """
-        self.clipboard = self.count
-        self.ops += 1
-
-    def paste(self) -> None:
-        """
-        Adds value of clipboard to current count and increments ops by 1
-        """
-        self.count += self.clipboard
-        self.ops += 1
-
-    def __str__(self) -> str:
-        """
-        Returns a string of 'H's repeated count times
-        """
-        return "H" * self.count
-
-    def clear(self) -> None:
-        """
-        Resets instance variables to initial values
-        """
+    def __init__(self):
         self.count = 1
         self.ops = 0
         self.clipboard = 0
 
-    def minOperations(self, n: int) -> int:
+    def copy(self):
         """
-        Returns the minimum number of operations required to get to n from 1
+        the copy function
         """
-        # Check that input is a positive integer
+        self.clipboard = self.count
+        self.ops += 1
+
+    def paste(self):
+        """
+        the paste function
+        """
+        self.count += self.clipboard
+        self.ops += 1
+
+    def __str__(self):
+        """
+        string function
+        """
+        return "H" * self.count
+
+    def clear(self):
+        """
+        restart the instance
+        """
+        self.__init__()
+
+    def minOperations(self, n):
+        """
+        find the minimum operation
+        """
         if not isinstance(n, int) or n < 1:
             return 0
 
         self.clear()
 
-        # Perform operations until count reaches n
         while self.count < n:
             if self.clipboard == 0:
                 self.copy()
@@ -64,14 +55,12 @@ class opClass:
                 self.paste()
             elif self.clipboard > 0:
                 self.paste()
-
-        # Return the number of operations performed
         return self.ops
 
 
 def minOperations(n: int) -> int:
     """
-    Returns the minimum number of operations required to get to n from 1
+    find the minimum operations
     """
-    c: opClass = opClass()
+    c = opClass()
     return c.minOperations(n)
