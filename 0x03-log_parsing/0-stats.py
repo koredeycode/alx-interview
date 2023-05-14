@@ -22,7 +22,6 @@ def main():
             if not re.match(pattern, line):
                 continue
 
-            #print(line)
             match = re.match(pattern, line)
             file_size = int(match.group(4))
             status_code = int(match.group(3))
