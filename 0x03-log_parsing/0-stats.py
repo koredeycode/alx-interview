@@ -19,7 +19,6 @@ def main():
     try:
         for line in sys.stdin:
             line = line.strip()
-
             if not re.match(pattern, line):
                 continue
 
@@ -34,6 +33,9 @@ def main():
                 print("File size: {}".format(size))
                 for code in sorted(stats.keys()):
                     print("{}: {}".format(code, stats[code]))
+        print("File size: {}".format(size))
+        for code in sorted(stats.keys()):
+            print("{}: {}".format(code, stats[code]))
     except KeyboardInterrupt:
         print("File size: {}".format(size))
         for code in sorted(stats.keys()):
