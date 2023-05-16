@@ -3,10 +3,11 @@
 Module documentation for the utf-8
 validation task
 """
-from typing import List
+#from typing import List
 
 
-def validUTF8(data: List[int]) -> bool:
+#def validUTF8(data: List[int]) -> bool:
+def validUTF8(data) -> bool:
     """
     determines if a given data set represents a valid utf-8 encoding
     """
