@@ -37,4 +37,3 @@ def validUTF8(data: List[int]) -> bool:
 
     # If there are remaining bytes, it means the data is incomplete
     return num_bytes == 0
-
