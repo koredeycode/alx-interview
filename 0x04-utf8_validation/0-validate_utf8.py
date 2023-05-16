@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-module documentation for the utf-8 validation task
+Module documentation for the utf-8 validation task
 """
 from typing import List
 
