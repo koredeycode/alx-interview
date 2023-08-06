@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+the 0-nqueen module containing the solution
+"""
 import sys
 
 solutions = []
