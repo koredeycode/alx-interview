@@ -89,19 +89,19 @@ def main(args):
     if len(args) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
-    num: str = args[1]
-    if not num.isnumeric():
+    try:
+        num = args[1]
+        num = int(num)
+    except Exception:
         print("N must be a number")
         sys.exit(1)
-    num = int(num)
     if num < 4:
         print("N must be at least 4")
         sys.exit(1)
-    n = num
-    board = [[0 for i in range(n)] for j in range(n)]
-    solveNQueens(0, board, n)
+    board = [[0 for i in range(num)] for j in range(num)]
+    solveNQueens(0, board, num)
     [print(sol) for sol in solutions]
 
 
-# if __name__ == "__main__":
-main(sys.argv)
+if __name__ == "__main__":
+    main(sys.argv)
