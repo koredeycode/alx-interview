@@ -81,7 +81,7 @@ def solveNQueens(row, board, n):
             board[row][col] = 0
 
 
-def main(args) -> None:
+def main(args):
     """
     the program's main function
     contains the main program and print out the solution
