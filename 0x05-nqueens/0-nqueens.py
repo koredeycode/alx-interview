@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
 the 0-nqueen module containing the solution
+takes in the value of the board size and compute the solutions
 """
 import sys
 
@@ -10,6 +11,8 @@ solutions = []
 def print_board(board, n):
     """
     print a chess board
+    not so needed util function for printing out the board
+    for debugging needs
     """
     for i in range(n):
         for j in range(n):
@@ -21,6 +24,7 @@ def print_board(board, n):
 def is_safe(row, col, board, n):
     """
     check if a position on the board is safe for the queen to stay
+    check in various direction for attacks
     """
     x = row
     y = col
@@ -52,6 +56,7 @@ def is_safe(row, col, board, n):
 def findPositions(board, n):
     """
     find the position of the queens from a valid board
+    check for the coordinates where the value is 1
     """
     ret = []
     for i in range(n):
@@ -64,6 +69,7 @@ def findPositions(board, n):
 def solveNQueens(row, board, n):
     """
     recursive function that solve the nqueen function
+    find the position from a valid solution and append it
     """
     if row == n:
         solutions.append(findPositions(board, n))
@@ -78,6 +84,7 @@ def solveNQueens(row, board, n):
 def main(args) -> None:
     """
     the program's main function
+    contains the main program and print out the solution
     """
     if len(args) != 2:
         print("Usage: nqueens N")
