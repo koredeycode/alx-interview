@@ -88,15 +88,15 @@ def main(args):
     """
     if len(args) != 2:
         print("Usage: nqueens N")
-        return
+        sys.exit(1)
     num: str = args[1]
     if not num.isnumeric():
         print("N must be a number")
-        return
+        sys.exit(1)
     num = int(num)
     if num < 4:
         print("N must be at least 4")
-        return
+        sys.exit(1)
     n = num
     board = [[0 for i in range(n)] for j in range(n)]
     solveNQueens(0, board, n)
