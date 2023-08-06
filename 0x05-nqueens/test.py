@@ -1,24 +1,14 @@
 #!/usr/bin/python3
 import sys
-
 solutions = []
-
-
 def print_board(board, n):
-    """
-    print a chess board
-    """
     for i in range(n):
         for j in range(n):
             print(board[i][j], end=" | ")
         print()
     print("=" * (n + 3))
 
-
 def is_safe(row, col, board, n):
-    """
-    check if a position on the board is safe for the queen to stay
-    """
     x = row
     y = col
 
@@ -45,11 +35,7 @@ def is_safe(row, col, board, n):
         y -= 1
     return True
 
-
 def findPositions(board, n):
-    """
-    find the position of the queens from a valid board
-    """
     ret = []
     for i in range(n):
         for j in range(n):
@@ -57,11 +43,7 @@ def findPositions(board, n):
                 ret.append([i, j])
     return ret
 
-
 def solveNQueens(row, board, n):
-    """
-    recursive function that solve the nqueen function
-    """
     if row == n:
         solutions.append(findPositions(board, n))
         return
@@ -88,10 +70,9 @@ def main(args) -> None:
         print("N must be at least 4")
         return
     n = num
-    board = [[0 for i in range(n)] for j in range(n)]
+    board =[[0 for i in range(n)] for j in range(n)]
     solveNQueens(0, board, n)
     [print(sol) for sol in solutions]
-
 
 if __name__ == "__main__":
     main(sys.argv)
