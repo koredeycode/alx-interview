@@ -3,6 +3,7 @@
 The rotate 2d matrix module
 """
 
+
 def transpose(mat: list) -> None:
     """Transpose a matrix inplace
 
