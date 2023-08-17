@@ -14,6 +14,7 @@ def transpose(mat: list) -> None:
         for j in range(i + 1, n):
             mat[i][j], mat[j][i] = mat[j][i], mat[i][j]
 
+
 def revForClockwiseRotation(mat: list) -> None:
     """rotate the transposed matrix clockwisely
 
@@ -28,6 +29,7 @@ def revForClockwiseRotation(mat: list) -> None:
             left += 1
             right -= 1
 
+
 def revForAntiClockwiseRotation(mat: list) -> None:
     """rotat the transpose matrix anticlockwisely
 
@@ -37,7 +39,8 @@ def revForAntiClockwiseRotation(mat: list) -> None:
     n = len(mat)
     for i in range(n // 2):
         mat[i], mat[n - i - 1] = mat[n - i - 1], mat[i]
-            
+
+
 def rotate_2d_matrix(mat: list) -> None:
     transpose(mat)
     revForClockwiseRotation(mat)
