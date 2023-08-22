@@ -4,7 +4,7 @@ the makeChange module
 """
 
 
-def makeChange(coins: list, total: int) -> int:
+def makeChange(coins, total):
     """
     determine the fewest number of coins needed to make total
     """
