@@ -2,10 +2,9 @@
 """
 the island perimeter module
 """
-from typing import List
 
 
-def island_perimeter(grid: List[List[int]]) -> int:
+def island_perimeter(grid: list) -> int:
     """
     calculate the perimeter of an island
     """
