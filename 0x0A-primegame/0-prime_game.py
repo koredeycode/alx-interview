@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Module for the prime game
+Module for the prime game contains the isWinner function
+The script determines the winner between Maria and Ben and None if there is tie
 """
 
 
