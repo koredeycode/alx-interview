@@ -58,5 +58,6 @@ def isWinner(x: int, nums: list[int]) -> str:
             count['Ben'] += 1
     if count['Maria'] > count['Ben']:
         return 'Maria'
-    else:
+    else if count['Maria'] < count['Ben']:
         return 'Ben'
+    return None
