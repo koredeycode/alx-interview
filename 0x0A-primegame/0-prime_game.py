@@ -50,7 +50,6 @@ def isWinner(x: int, nums: list[int]) -> str:
     Returns:
         str: The winner
     """
-    x = x;
     count = {'Maria': 0, 'Ben': 0}
     for n in nums:
         winner = whoWon(n)
