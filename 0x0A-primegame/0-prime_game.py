@@ -1,64 +1,37 @@
 #!/usr/bin/python3
 """
-Module for the prime game contains the isWinner function
-The script determines the winner between Maria and Ben and None if there is tie
+the prime_game module
 """
 
 
-def isPrime(x: int) -> bool:
-    """return if a number is a prime number
-
-    Args:
-        x (int): the number to be checked
-
-    Returns:
-        bool: the result
-    """
-    if x == 0 or x == 1:
+def is_prime(x):
+    """Check if a number is prime."""
+    if x < 2:
         return False
-    ret = True
-    for n in range(2, x // 2):
-        if x % n == 0:
-            ret = False
-            break
-    return ret
+    for i in range(2, int(x ** 0.5) + 1):
+        if x % i == 0:
+            return False
+    return True
 
 
-def whoWon(n: int) -> int:
-    """check who won for a number
+def isWinner(x, nums):
+    """Determine the winner of a prime game session with `x` rounds."""
+    if x < 1 or not nums:
+        return None
 
-    Args:
-        n (int): number
+    maria_wins = 0
+    ben_wins = 0
 
-    Returns:
-        int: who won
-    """
-    currentWinner = 1
-    for i in range(n):
-        if isPrime(i):
-            currentWinner = 0 if currentWinner == 1 else 1
-    return currentWinner
+    max_num = max(nums)
+    primes = [is_prime(i) for i in range(max_num + 1)]
 
-
-def isWinner(x: int, nums: list[int]) -> str:
-    """determines the winner of the rounds
-
-    Args:
-        x (int): number of rounds
-        nums (List[int]): an arrray of number
-
-    Returns:
-        str: The winner
-    """
-    count = {'Maria': 0, 'Ben': 0}
-    for n in nums:
-        winner = whoWon(n)
-        if winner == 0:
-            count['Maria'] += 1
+    for n in nums[:x]:
+        prime_count = sum(primes[:n])
+        if prime_count % 2 == 0:
+            ben_wins += 1
         else:
-            count['Ben'] += 1
-    if count['Maria'] > count['Ben']:
-        return 'Maria'
-    elif count['Maria'] < count['Ben']:
-        return 'Ben'
-    return None
+            maria_wins += 1
+
+    if maria_wins == ben_wins:
+        return None
+    return 'Maria' if maria_wins > ben_wins else 'Ben'
