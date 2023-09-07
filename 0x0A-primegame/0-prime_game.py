@@ -5,6 +5,41 @@ The script determines the winner between Maria and Ben and None if there is tie
 """
 
 
+def isPrime(x: int) -> bool:
+    """return if a number is a prime number
+
+    Args:
+        x (int): the number to be checked
+
+    Returns:
+        bool: the result
+    """
+    if x == 0 or x == 1:
+        return False
+    ret = True
+    for n in range(2, x // 2):
+        if x % n == 0:
+            ret = False
+            break
+    return ret
+
+
+def whoWon(n: int) -> int:
+    """check who won for a number
+
+    Args:
+        n (int): number
+
+    Returns:
+        int: who won
+    """
+    currentWinner = 1
+    for i in range(n):
+        if isPrime(i):
+            currentWinner = 0 if currentWinner == 1 else 1
+    return currentWinner
+
+
 def isWinner(x: int, nums: list[int]) -> str:
     """determines the winner of the rounds
 
@@ -15,15 +50,9 @@ def isWinner(x: int, nums: list[int]) -> str:
     Returns:
         str: The winner
     """
-    def is_prime(x): return False if x in (0, 1) else all(x %
-                                                          i != 0 for i in range(2, int(x ** 0.5) + 1))
-
-    def who_won(n): return 1 if sum(
-        1 for i in range(n) if is_prime(i)) % 2 == 0 else 0
-
     count = {'Maria': 0, 'Ben': 0}
     for n in nums:
-        winner = who_won(n)
+        winner = whoWon(n)
         if winner == 0:
             count['Maria'] += 1
         else:
